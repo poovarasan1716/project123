@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.10",
+    "marked": "^16.0.0",
+    "moment": "^2.30.1",
+    "motion": "^12.18.1",
+    "quill": "^2.0.3",
+    "react-hot-toast": "^2.5.2",
+    "react-router-dom": "^7.6.2",
+    "tailwindcss": "^4.1.10"
+  }
+}

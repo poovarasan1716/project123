@@ -1,25 +1,25 @@
 import React, { useState } from 'react'
-import { useAppContext } from '../../context/AppContext'
+import { useAppContext3 } from '../../context/AppContext3'
 import toast from 'react-hot-toast'
 
 const Login3 = () => {
  
 
-    const {axios, setToken} = useAppContext();
+    const {axios, setToken} = useAppContext3();
 
-    const[email,setEmail] = useState('')
-    const[password,setPassword] = useState('')
+    const[email3,setEmail] = useState('')
+    const[password3,setPassword] = useState('')
 
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
-            const {data} = await axios.post('/api/admin3/login', {email, password})
+            const {data} = await axios.post('/api/admin3/login3', {email3, password3})
 
             if(data.success){
-                setToken(data.token)
-                localStorage.setItem('token', data.token)
-                axios.defaults.headers.common['Authorization'] = data.token;
+                setToken(data.token3)
+                localStorage.setItem('token3', data.token3)
+                axios.defaults.headers.common['Authorization'] = data.token3;
             }
             else{
                 toast.error(data.message)
@@ -39,12 +39,12 @@ const Login3 = () => {
             <form onSubmit={handleSubmit} className='mt-6 w-full sm:max-w-md text-gray-600'>
              <div className='flex flex-col'>
                 <label>Email</label>
-                <input onChange={e=> setEmail(e.target.value)} value={email}
+                <input onChange={e=> setEmail(e.target.value)} value={email3}
                 type='email' required placeholder='your email id' className='border-b-2 border-gray-300 p-2 outline-none mb-6'/>
              </div>
              <div className='flex flex-col'>
                 <label>Password</label>
-                <input  onChange={e=> setPassword(e.target.value)} value={password}
+                <input  onChange={e=> setPassword(e.target.value)} value={password3}
                 type='password' required placeholder='your password' className='border-b-2 border-gray-300 p-2 outline-none mb-6'/>
              </div>
              <button type='submit' className='w-full py-3 font-medium bg-primary text-white rounded cursor-pointer hover:bg-primary/90 transition-all'>Login</button>

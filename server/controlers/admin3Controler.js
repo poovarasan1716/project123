@@ -10,8 +10,8 @@ export const adminLogin3 = async (req,res)=>{
         if(email3 !== process.env.ADMIN_EMAIL3 || password3 !== process.env.ADMIN_PASSWORD3){
             return res.json({success: false, message: "Invalid Credentials"})
     }
-    const token =jwt.sign({email3},process.env.JWT_SECRET3)
-    res.json({success: true, token})
+    const token3 =jwt.sign({email3},process.env.JWT_SECRET3)
+    res.json({success: true, token3})
     } catch (error) {
  res.json({success: false, message: error.message})
     }

@@ -60,7 +60,7 @@ export const assets = {
     dashboard_icon_3,
     dashboard_icon_4,
 }
-export const blogCategories = ['All Event', 'DS Club', 'Academic', 'Sports']
+export const blogCategories = ['All Event', 'DS Club', 'AI Club', 'AR-VR Club']
 
 export const blog_data = [
     {

@@ -90,7 +90,7 @@
 import React, { useEffect, useState } from 'react';
 import { assets } from '../../assets/assets';
 import BlogTableItem1 from '../../components/admin1/BlogTableItem1';
-import { useAppContext } from '../../context/AppContext';
+import { useAppContext1 } from '../../context/AppContext1';
 import toast from 'react-hot-toast';
 
 // Define the fixed category you want to display
@@ -104,11 +104,11 @@ const Dashboard1 = () => {
     recentBlogs: [],
   });
 
-  const { axios } = useAppContext();
+  const { axios } = useAppContext1();
 
   const fetchDashboard = async () => {
     try {
-      const { data } = await axios.get('/api/admin1/dashboard');
+      const { data } = await axios.get('/api/admin1/dashboard1');
       if (data.success) {
         setDashboardData(data.dashboardData);
       } else {

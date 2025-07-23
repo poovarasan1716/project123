@@ -7,7 +7,7 @@ const BlogList = () => {
 
 
 
-    const [menu,setMenu]= useState("All")
+    const [menu,setMenu]= useState("All Event")
     const {blogs, input} = useAppContext()
     
     const filteredBlogs = ()=>{

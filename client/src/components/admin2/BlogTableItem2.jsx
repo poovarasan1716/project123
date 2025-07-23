@@ -1,6 +1,6 @@
 import React from 'react'
 import { assets } from '../../assets/assets';
-import { useAppContext } from '../../context/AppContext';
+import { useAppContext2 } from '../../context/AppContext2';
 import toast from 'react-hot-toast';
 
 const BlogTableItem2 = ({blog,fetchBlogs,index}) => {
@@ -8,13 +8,13 @@ const BlogTableItem2 = ({blog,fetchBlogs,index}) => {
     const {title,createdAt}=blog;
     const BlogDate = new Date(createdAt)
 
-    const {axios} = useAppContext()
+    const {axios} = useAppContext2()
     
     const deleteBlog = async ()=>{
       const confirm = window.confirm('Are you sure you want to delete this blog?')
       if(!confirm) return;
       try {
-        const {data} = await axios.post('/api/blog/delete',{id: blog._id})
+        const {data} = await axios.post('/api/blog/delete2',{id: blog._id})
         if(data.success){
           toast.success(data.message)
           await fetchBlogs()
@@ -29,7 +29,7 @@ const BlogTableItem2 = ({blog,fetchBlogs,index}) => {
 
     const togglePublish = async ()=>{
       try {
-        const {data} = await axios.post('/api/blog/toggle-publish',{id: blog._id})
+        const {data} = await axios.post('/api/blog/toggle-publish2',{id: blog._id})
         if(data.success){
           toast.success(data.message)
           await fetchBlogs()

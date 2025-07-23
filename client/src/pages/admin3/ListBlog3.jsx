@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { blog_data } from '../../assets/assets';
 import BlogTableItem3 from '../../components/admin3/BlogTableItem3';
-import { useAppContext } from '../../context/AppContext';
+import { useAppContext3 } from '../../context/AppContext3';
 import toast from 'react-hot-toast';
 
 const ListBlog3 = () => {
 
   const [blogs,setBlogs] = useState([]);
-  const {axios} = useAppContext()
+  const {axios} = useAppContext3()
 
   const fetchBlogs =  async()=>{
     try {

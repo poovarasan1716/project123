@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { assets, blogCategories } from '../../assets/assets'
 import Quill from 'quill';
-import { useAppContext } from '../../context/AppContext';
+import { useAppContext3 } from '../../context/AppContext3';
 import toast from 'react-hot-toast';
 import {parse} from 'marked';
 import { div } from 'motion/react-client';
 const AddBlog3 = () => {
 
-const {axios} = useAppContext()
+const {axios} = useAppContext3()
 const [isAdding, setIsAdding] = useState(false)
 const [loading, setLoading] = useState(false)
 
@@ -17,7 +17,7 @@ const quillRef = useRef(null)
 const [image,setImage]= useState(false);
 const [title,setTitle]= useState('');
 const [subTitle,setSubTitle]= useState('');
-const [category,setCategory]= useState('DS Club');
+const [category,setCategory]= useState('AR-VR Club');
 const [isPublished,setIsPublished]= useState(false);
 
 const generateContent = async ()=>{
@@ -25,7 +25,7 @@ const generateContent = async ()=>{
 
       try {
         setLoading(true);
-        const {data} = await axios.post('/api/blog/generate',{prompt: title})
+        const {data} = await axios.post('/api/blog/generate3',{prompt: title})
         if (data.success){
           quillRef.current.root.innerHTML = parse(data.content)
         }else{
@@ -53,14 +53,14 @@ const onSubmitHandled = async(e) =>{
    formData.append('blog', JSON.stringify(blog))
    formData.append('image', image)
 
-   const {data} = await axios.post('/api/blog/add', formData);
+   const {data} = await axios.post('/api/blog/add3', formData);
 
    if(data.success){
     toast.success(data.message);
     setImage(false)
     setTitle('')
     quillRef.current.root.innerHTML = ''
-    setCategory('DS Club')
+    setCategory('AR-VR Club')
    }else{
     toast.error(data.message)
    }

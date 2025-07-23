@@ -2,18 +2,18 @@ import React from 'react'
 import { assets } from '../../assets/assets';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useAppContext } from '../../context/AppContext';
+import { useAppContext3 } from '../../context/AppContext3';
 
 const CommentTableItem3 = ({comment,fetchComments}) => {
 
 const {blog,createdAt, _id}=comment;
 const BlogDate = new Date(createdAt);
 
-const {axios} = useAppContext()
+const {axios} = useAppContext3()
 
 const approveComment = async ()=>{
   try {
-    const {data} = await axios.post('/api/admin3/approve-comment',{id: _id})
+    const {data} = await axios.post('/api/admin3/approve-comment3',{id: _id})
     if (data.success){
       toast.success(data.message)
       fetchComments()
@@ -29,7 +29,7 @@ const deleteComment = async ()=>{
   try {
     const confirm = window.confirm("Are you sure you want to delete this comment?");
     if(!confirm) return;
-    const {data} = await axios.post('/api/admin3/delete-comment',{id: _id})
+    const {data} = await axios.post('/api/admin3/delete-comment3',{id: _id})
     if (data.success){
       toast.success(data.message)
       fetchComments()

@@ -236,7 +236,8 @@ import { useAppContext } from '../context/AppContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  const { navigate, token } = useAppContext();
+const navigate = useNavigate();
+  const { token, token1, token2, token3 } = useAppContext(); // Ensure these are provided in context
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -246,15 +247,15 @@ const Navbar = () => {
     },
     { 
       path: '/admin1', 
-      text: token ? 'DS Club' : 'DS Portal',
+      text: token1 ? 'DS Club' : 'DS Portal',
     },
     { 
       path: '/admin2', 
-      text: token ? 'AI Club' : 'AI Portal',
+      text: token2 ? 'AI Club' : 'AI Portal',
     },
     { 
       path: '/admin3', 
-      text: token ? 'AR-VR Club' : 'AR-VR Portal',
+      text: token3 ? 'AR-VR Club' : 'AR-VR Portal',
     }
   ];
 

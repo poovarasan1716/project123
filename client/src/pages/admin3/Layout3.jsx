@@ -3,14 +3,14 @@ import { assets } from '../../assets/assets'
 import { Outlet, useNavigate } from 'react-router-dom'
 import SideBar3 from '../../components/admin3/SideBar3'
 import axios from 'axios'
-import { useAppContext } from '../../context/AppContext'
+import { useAppContext3 } from '../../context/AppContext3'
 
 const Layout3 = () => {
 
-  const {axios, setToken, navigate} = useAppContext();
+  const {axios, setToken, navigate} = useAppContext3();
 
   const logout = ()=>{
-    localStorage.removeItem('token');
+    localStorage.removeItem('token3');
     axios.defaults.headers.common['Authorization'] = null;
     setToken(null)
     navigate('/')

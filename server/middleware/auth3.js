@@ -2,9 +2,9 @@ import jwt from "jsonwebtoken";
 
 
 const auth3 = (req, res, next) =>{
-    const token = req.headers.authorization;
+    const token3 = req.headers.authorization;
     try {
-        jwt.verify(token, process.env.JWT_SECRET3)
+        jwt.verify(token3, process.env.JWT_SECRET3)
         next();
     } catch (error) {
         res.json({success: false, message: "Invalid token"})
